@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title>Bootstrap Login Form</title>
+		<meta name="generator" content="Bootply" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<!--[if lt IE 9]>
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<link href="css/styles.css" rel="stylesheet">
+	</head>
+
+  <style type="text/css">
+  .modal-dialog{
+      overflow-y: initial;
+  }
+      .modal-body-scroll{
+          height: 44.6vw;
+          overflow-y: auto;
+        }
+
+
+  </style>
+
+
+	<body style = "background-color:#B8E6E6;">
+
+    
+
+      <div class= "container-fluid" style="float: left;
+    position: relative;
+    left: 25%;">
+
+<!--login modal-->
+<div class="row-fluid" style=" float: left;
+    position: relative;
+    left: -25%;">
+<div id="loginModal" class=" col-md-8" tabindex="-1" role="dialog" aria-hidden="true" style="">
+  <div class="modal-dialog" >
+  <div class="modal-content">
+      <div class="modal-header" style = "background-color:#5C8AE6;">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h1 class="text-center">Calcula Poscomp</h1>
+      </div>
+      <div class="modal-body ">
+          <form class="form col-md-12 center-block">
+
+            <div class="form-group">
+              <input id="cra" class="form-control input-lg" placeholder="CRA" type="number" step="0.01">
+            </div>
+            <div class="form-group">
+              <input id="npu1" class="form-control input-lg" placeholder="NPU1" type="number" step="0.01">
+            </div>
+
+             <div class="form-group">
+              <input id="npu2" class="form-control input-lg" placeholder="NPU2"type="number" step="0.01" >
+            </div>
+            <div class="form-group">
+              <input id="npu3" class="form-control input-lg" placeholder="NPU3" type="number" step="0.01">
+            </div>
+
+             <div class="form-group">
+              <input id="npu4" class="form-control input-lg" placeholder="NPU4" type="number" step="0.01" >
+            </div>
+            <div class="form-group">
+              <input id="ne1" class="form-control input-lg" placeholder="NE1" type="number" step="0.01" >
+            </div>
+
+             <div class="form-group">
+              <input id="ne2" class="form-control input-lg" placeholder="NE2" type="number" step="0.01">
+            </div>
+            <div class="form-group">
+              <input id="ne3" class="form-control input-lg" placeholder="NE3" type="number" step="0.01" >
+            </div>
+
+             <div class="form-group">
+              <input id="ne4" class="form-control input-lg" placeholder="NE4" type="number" step="0.01">
+            </div>
+            <div class="form-group">
+              <input id="ne5" class="form-control input-lg" placeholder="NE5" type="number" step="0.01">
+            </div>
+
+             <div class="form-group">
+              <input id="ne6" class="form-control input-lg" placeholder="NE6" type="number" step="0.01" >
+            </div>
+            <div class="form-group">
+              <input id="npc1" class="form-control input-lg" placeholder="NPC1" type="number" step="0.01">
+            </div>
+
+            <div class="form-group">
+                <input class="btn btn-primary btn-lg btn-block" type="button" value="Calcular" id="b1" onclick="calculaNota();" data-target="#result_dialog"/>
+
+              <!-- <button class="btn btn-primary btn-lg btn-block" onclick="calculaNota();">Calcular</button> -->
+              <!-- <span class="pull-right"><a href="#">Register</a></span><span><a href="#">Need help?</a></span> -->
+            </div>
+          </form>
+      </div>
+      <div class="modal-footer">
+          <div class="col-md-12">
+         
+		  </div>
+          <p id="result"></p>	
+      </div>
+  </div>
+
+  </div>
+
+  </div>
+
+  <div id="loginModal" class=" col-md-4" tabindex="-1" role="dialog" aria-hidden="true" style="">
+  <div class="modal-dialog">
+  <div class="modal-content">
+      <div class="modal-header" style = "background-color:#5C8AE6;">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h1 class="text-center" >Explicação</h1>
+      </div>
+      <div class="modal-body modal-body-scroll" style="text-align:left;">
+          <ul>
+              <li>
+                  <b>NPU 1</b> = Índice de artigos em congressos e periódicos com índice Qualis A1 ou A2, calculado da
+                  seguinte forma:
+                  ○ Para cada artigo completo computa-se 1/(posição do candidato na lista de autores)
+                  pontos.
+                  ○ Para cada artigo curto (short paper) computa-se (1/posição do candidato na lista de
+                  autores) * 0,5 pontos.
+
+              </li >
+               <li>
+                  <b>NPU 2</b> = Índice de artigos completos em congressos e periódicos com índice Qualis B1 ou B2,
+                  calculado da seguinte forma:
+                  <ul>
+                      <li>Para cada artigo completo computa-se 1/(posição do candidato na lista de autores)
+pontos.
+                      </li>
+                       <li>Para cada artigo curto (short paper) computa-se (1/posição do candidato na lista de
+autores) * 0,5 pontos.
+                      </li>
+                  </ul> 
+
+              </li>
+
+              <li>
+                  <b>NPU 3</b> = Índice de artigos completos em congressos e periódicos com índice Qualis B3 ou B4,
+              calculado da seguinte forma:
+                  <ul>
+                      <li>Para cada artigo completo computa-se 1/(posição do candidato na lista de autores)
+pontos.
+                      </li>
+                       <li>Para cada artigo curto (short paper) computa-se (1/posição do candidato na lista de
+autores) * 0,5 pontos.
+                      </li>
+                  </ul> 
+
+              </li>
+
+              <li>
+                  <b>NPU 4</b> =Índice para capítulos de livro ou artigos completos em congressos e periódicos com
+índice Qualis B5, Qualis C ou sem classificação no Qualis, calculado da seguinte forma:
+                  <ul>
+                      <li>PPara cada capítulo de livro ou artigo completo computa-se 1/(posição do candidato na
+lista de autores) pontos.
+                      </li>
+                       <li>Para cada artigo curto (short paper) computa-se (1/posição do candidato na lista de
+autores) * 0,5 pontos.
+                      </li>
+                  </ul> 
+
+              </li>
+
+              <li><b>NE 1</b> = Número de Semestres concluídos como pesquisador com Mestrado em projetos de
+pesquisa institucionais;
+              </li>   
+
+              <li><b>NE 2 = </b>Número de Semestres concluídos de monitoria, de iniciação à docência ou licenciatura,
+de ensino na área (técnico ou nível superior) ou de experiência profissional na área como
+graduado; 
+              <ul>
+                  <li>
+No caso de candidatos que tenham mais de uma monitoria em um único semestre, será
+computado apenas um semestre como concluído;
+                  </li>
+
+                  <li>
+No caso de candidatos que tenham mais de uma iniciação à docência em um único
+semestre, será computado apenas um semestre como concluído;
+                  </li>
+
+                  <li>
+No caso de candidatos que tenham mais de uma iniciação à licenciatura em um único
+semestre, será computado apenas um semestre como concluído;
+                  </li>
+
+                  <li>
+No caso de candidatos que tenham ministrado mais de uma disciplina em um único
+semestre, será computado apenas um semestre como concluído;
+                  </li>
+
+              </ul> 
+
+              </li>
+
+                  <li>
+<b>NE 3</b> = Número de Semestres concluídos de Iniciação Científica ou Tecnológica;
+                  </li>
+
+<li><b>NE 4</b> = Número de Semestres concluídos de participação de grupo PET ou em projetos de
+extensão;</li>
+
+<li><b>NE 5</b> = 1,0, se o candidato possui uma ou mais especializações lato-sensu em Ciência da
+Computação ou em áreas afins definidas no Regulamento do Programa, ou 0, se não possui;</li>
+
+<li><b>NE 6</b> = 10,0, se o candidato possui mestrado ou se está em condições de concluir o Mestrado
+até Agosto de 2015 em Ciência da Computação ou em áreas afins definidas no Regulamento do
+Programa, ou 0, se não possui. No último caso, o candidato precisa comprovar, através de</li>
+
+<li><b>NPC 1 </b>= Nota no POSCOMP;</li>
+
+
+
+
+          </ul> 
+      </div>
+      
+      <!-- <div class="modal-footer">
+          <div class="col-md-12">
+         
+      </div>
+          <p id="result"></p> 
+      </div> -->
+  </div>
+
+  </div>
+
+  </div>
+
+</div>
+
+<div class="modal fade" id="result_dialog" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Resultado</h4>
+        </div>
+        <div class="modal-body">
+          <h3 id="result2"></h3> 
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+  </div>
+
+	<!-- script references -->
+
+ <script type="text/javascript">
+
+
+            function calculaNota() {
+
+              var CRA = parseFloat(document.getElementById("cra").value);
+              var NPU1  = parseFloat(document.getElementById("npu1").value);
+              var NPU2 = parseFloat(document.getElementById("npu2").value);
+              var NPU3 = parseFloat(document.getElementById("npu3").value);
+              var NPU4= parseFloat(document.getElementById("npu4").value);
+              var NE1= parseFloat(document.getElementById("ne1").value);
+              var NE2= parseFloat(document.getElementById("ne2").value);
+              var NE3= parseFloat(document.getElementById("ne3").value);
+              var NE4= parseFloat(document.getElementById("ne4").value);
+              var NE5= parseFloat(document.getElementById("ne5").value);
+              var NE6= parseFloat(document.getElementById("ne6").value);
+              var NPC1= parseFloat(document.getElementById("npc1").value);
+
+              var NPC2 = 29.1
+              var NPC3 = 7.4
+              var graduacao = CRA
+              var publicacoes = 8 * NPU1 + 4 * NPU2 + 2 * Math.min(2,NPU3) + Math.min(2,NPU4)
+              var experiencia = Math.min(10, (((NE1)/2.) + Math.min(5, (NE2)/4.) + (NE3)/2. + (NE4)/3. + NE5)) + NE6
+              var posc = Math.max(((1 + (NPC1 - NPC2)/NPC3)*3.), 0)
+
+              var temp1 = (3 * publicacoes) 
+              var temp2 = (2 * experiencia) 
+              var temp3 = (4.5 * posc) 
+
+              // var pontuacao = CRA + (3 * publicacoes) + (2 * experiencia) + (4.5 * posc)
+               var pontuacao = CRA + temp1 + temp2 + temp3
+
+                
+              document.getElementById("result2").innerHTML = document.getElementById("result2").innerHTML +pontuacao      
+
+              $('#result_dialog').modal({
+                show: 'true'
+              }); 
+            // Function returns the product of a and b
+            
+            } 
+
+    </script>
+
+
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+
+
+	</body>
+</html>
